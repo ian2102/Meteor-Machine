@@ -37,8 +37,5 @@ offset_top = 807.0
 offset_right = 1826.0
 offset_bottom = 1032.0
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
-
 [connection signal="button_down" from="MainMenu/Learn" to="." method="_on_learn_button_down"]
 [connection signal="button_down" from="MainMenu/Launch" to="." method="_on_launch_button_down"]
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

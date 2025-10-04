@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpo27w1ek5dhj"]
+
+[ext_resource type="Script" uid="uid://b5bjbjh4lk774" path="res://Scripts/launch.gd" id="1_jw84x"]
+[ext_resource type="Texture2D" uid="uid://do1rjn4m5glov" path="res://Assets/LaunchMap.jpg" id="2_nrqhf"]
+
+[node name="Launch" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jw84x")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nrqhf")

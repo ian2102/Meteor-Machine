@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmfv6hpadljev"
-path="res://.godot/imported/TitleScreen.jpg-db11786c3c64a49958709a0a384005a5.ctex"
+uid="uid://do1rjn4m5glov"
+path="res://.godot/imported/LaunchMap.jpg-7685e2349bc759a66c307b03ad81a6b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/TitleScreen.jpg"
-dest_files=["res://.godot/imported/TitleScreen.jpg-db11786c3c64a49958709a0a384005a5.ctex"]
+source_file="res://Assets/LaunchMap.jpg"
+dest_files=["res://.godot/imported/LaunchMap.jpg-7685e2349bc759a66c307b03ad81a6b6.ctex"]
 
 [params]
 
