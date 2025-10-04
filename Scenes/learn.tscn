@@ -1,6 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjuw0dk1d81ru"]
+[gd_scene load_steps=3 format=3 uid="uid://cjuw0dk1d81ru"]
 
 [ext_resource type="Script" uid="uid://bhvh14caoi2n8" path="res://Scripts/learn.gd" id="1_3i1wp"]
+[ext_resource type="Texture2D" uid="uid://cwq0kmu3b80ni" path="res://Assets/LearnScreen.jpg" id="2_37p1f"]
 
-[node name="Learn" type="Node"]
+[node name="Learn" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_3i1wp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_37p1f")
+
+[node name="Asteroids" type="Button" parent="."]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 853.0
+offset_right = 680.0
+offset_bottom = 1071.0
+
+[node name="Mitigation" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1256.0
+offset_top = 856.0
+offset_right = 1793.0
+offset_bottom = 1074.0
+
+[node name="Environmental" type="Button" parent="."]
+layout_mode = 0
+offset_left = 698.0
+offset_top = 856.0
+offset_right = 1235.0
+offset_bottom = 1074.0
+
+[node name="ButtonLeft" type="Button" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 428.0
+offset_right = 381.0
+offset_bottom = 657.0
+
+[node name="ButtonRight" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1545.0
+offset_top = 446.0
+offset_right = 1784.0
+offset_bottom = 675.0
+
+[connection signal="button_down" from="Asteroids" to="." method="_on_asteroids_button_down"]
+[connection signal="button_down" from="Mitigation" to="." method="_on_mitigation_button_down"]
+[connection signal="button_down" from="Environmental" to="." method="_on_environmental_button_down"]
