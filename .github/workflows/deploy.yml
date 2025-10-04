@@ -1,0 +1,55 @@
+name: Deploy Godot Web Export
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout the latest code
+      - name: Checkout main branch
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      # 2️⃣ Clear previous export
+      - name: Clear previous export
+        run: rm -rf export/web
+
+      # 3️⃣ Export Godot project using GitHub-hosted 4.5 binaries
+      - name: Export Godot project
+        id: export
+        uses: firebelley/godot-export@v7.0.0
+        with:
+          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.5-stable/Godot_v4.5-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.5-stable/Godot_v4.5-stable_export_templates.tpz
+          relative_project_path: ./
+          relative_export_path: export/web
+          use_preset_export_path: false
+
+      # 4️⃣ Rename main HTML file to index.html inside Web folder
+      - name: Rename main HTML file to index.html
+        run: |
+          cd export/web/Web
+          html_file=$(ls *.html | head -n 1)
+          mv "$html_file" index.html
+
+      # 5️⃣ Move Web export files to root of export/web
+      - name: Move Web export files to root
+        run: |
+          mv export/web/Web/* export/web/
+          rm -rf export/web/Web
+
+      # 6️⃣ Deploy to gh-pages
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # or use GH_PAT for a Personal Access Token
+          publish_dir: ./export/web
+          publish_branch: gh-pages
+          force_orphan: true
+          commit_message: "Deploy new build $(date +'%Y-%m-%d %H:%M:%S')"
