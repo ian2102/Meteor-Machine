@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpo27w1ek5dhj"]
+[gd_scene load_steps=5 format=3 uid="uid://dpo27w1ek5dhj"]
 
 [ext_resource type="Script" uid="uid://b5bjbjh4lk774" path="res://Scripts/launch.gd" id="1_jw84x"]
 [ext_resource type="Texture2D" uid="uid://do1rjn4m5glov" path="res://Assets/LaunchMap.jpg" id="2_nrqhf"]
 [ext_resource type="PackedScene" uid="uid://ejpe02dug4vs" path="res://Scenes/learn_card.tscn" id="3_5tlx8"]
+[ext_resource type="Texture2D" uid="uid://cvpgqgx1r3n34" path="res://Assets/cards/1.png" id="3_y0xra"]
 
 [node name="Launch" type="Control"]
 layout_mode = 3
@@ -13,22 +14,87 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jw84x")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -250.0
+offset_bottom = -250.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_nrqhf")
+
+[node name="Background1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 825.0
+offset_bottom = 825.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nrqhf")
+
+[node name="AsteroidCard" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 360.0
+offset_bottom = 495.0
+texture = ExtResource("3_y0xra")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="LearnCard" parent="." instance=ExtResource("3_5tlx8")]
 layout_mode = 1
-offset_left = -717.0
-offset_top = -299.0
-offset_right = -717.0
-offset_bottom = -299.0
+offset_left = 231.0
+offset_top = -269.0
+offset_right = 231.0
+offset_bottom = -269.0
+scale = Vector2(1.2, 1.2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -252.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Button1" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "CARD"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "CARD"
+
+[node name="Button3" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "CARD"
+
+[node name="Activate" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "ACTIVATE"
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="button_down" from="HBoxContainer/Button1" to="." method="_on_button_1_button_down"]
+[connection signal="button_down" from="HBoxContainer/Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="HBoxContainer/Button3" to="." method="_on_button_3_button_down"]
