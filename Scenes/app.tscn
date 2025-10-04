@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://davn6ps1sg1au"]
+
+[ext_resource type="Script" uid="uid://dc3crayeihc1w" path="res://Scripts/app.gd" id="1_nmq3k"]
+
+[node name="App" type="Node"]
+script = ExtResource("1_nmq3k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading..."
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
