@@ -59,3 +59,5 @@ offset_bottom = 675.0
 [connection signal="button_down" from="Asteroids" to="." method="_on_asteroids_button_down"]
 [connection signal="button_down" from="Mitigation" to="." method="_on_mitigation_button_down"]
 [connection signal="button_down" from="Environmental" to="." method="_on_environmental_button_down"]
+[connection signal="button_down" from="ButtonLeft" to="." method="_on_button_left_button_down"]
+[connection signal="button_down" from="ButtonRight" to="." method="_on_button_right_button_down"]
