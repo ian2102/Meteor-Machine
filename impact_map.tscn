@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyyb3nlctwfdd"]
+
+[ext_resource type="Texture2D" uid="uid://do1rjn4m5glov" path="res://Assets/LaunchMap.jpg" id="1_go8uo"]
+
+[node name="Impact_Map" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(2, 2)
+texture = ExtResource("1_go8uo")

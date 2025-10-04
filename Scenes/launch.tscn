@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpo27w1ek5dhj"]
+[gd_scene load_steps=3 format=3 uid="uid://dpo27w1ek5dhj"]
 
 [ext_resource type="Script" uid="uid://drimolqoedkt7" path="res://Scripts/launch.gd" id="1_jw84x"]
+[ext_resource type="PackedScene" uid="uid://dyyb3nlctwfdd" path="res://impact_map.tscn" id="2_nrqhf"]
 
 [node name="Launch" type="Node"]
 script = ExtResource("1_jw84x")
+
+[node name="Impact_Map" parent="." instance=ExtResource("2_nrqhf")]
