@@ -18,3 +18,11 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 	for object in json["near_earth_objects"]:
 		print(object["name"])
 		label.text += object["name"] + "\n"
+
+
+func _on_learn_button_down() -> void:
+	pass # Replace with function body.
+
+
+func _on_launch_button_down() -> void:
+	pass # Replace with function body.

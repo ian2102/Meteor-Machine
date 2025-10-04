@@ -20,10 +20,72 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Loading..."
 
+[node name="Title" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -394.5
+offset_top = -178.5
+offset_right = 394.5
+offset_bottom = -41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Meteor Machine"
+
+[node name="Collaborators" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -11.5
+offset_right = 110.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "By Henry, Ian, Maya, William"
+
+[node name="Learn" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 867.5
+offset_top = 44.5
+offset_right = 920.5
+offset_bottom = 75.5
+grow_vertical = 2
+text = "Learn"
+
+[node name="Launch" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -932.5
+offset_top = 44.5
+offset_right = -867.5
+offset_bottom = 75.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Launch"
+
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
+[connection signal="button_down" from="CanvasLayer/Control/Learn" to="." method="_on_learn_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/Launch" to="." method="_on_launch_button_down"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
