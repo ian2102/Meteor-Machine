@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpo27w1ek5dhj"]
+[gd_scene load_steps=8 format=3 uid="uid://dpo27w1ek5dhj"]
 
 [ext_resource type="Script" uid="uid://b5bjbjh4lk774" path="res://Scripts/launch.gd" id="1_jw84x"]
 [ext_resource type="Texture2D" uid="uid://do1rjn4m5glov" path="res://Assets/LaunchMap.jpg" id="2_nrqhf"]
 [ext_resource type="Texture2D" uid="uid://cvpgqgx1r3n34" path="res://Assets/cards/asteroids/1_red.png" id="3_y0xra"]
 [ext_resource type="PackedScene" uid="uid://dmk1cg1yljy5r" path="res://Scenes/hit_marker.tscn" id="4_y0xra"]
+[ext_resource type="Texture2D" uid="uid://6geyvvf8ikkr" path="res://Assets/cards/defense/1_red.png" id="5_8cm1k"]
+[ext_resource type="Texture2D" uid="uid://bhhshmkksltd" path="res://Assets/cards/defense/2_red.png" id="6_bodta"]
+[ext_resource type="Texture2D" uid="uid://bn80kveyncgfs" path="res://Assets/cards/defense/3_red.png" id="7_1b3uw"]
 
 [node name="Launch" type="Control"]
 layout_mode = 3
@@ -93,7 +96,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -366.0
+offset_top = -431.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 100
@@ -104,21 +107,27 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
-text = "CARD"
+icon = ExtResource("5_8cm1k")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Button2" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
-text = "CARD"
+icon = ExtResource("6_bodta")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Button3" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
-text = "CARD"
+icon = ExtResource("7_1b3uw")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Activate" type="Button" parent="."]
 custom_minimum_size = Vector2(400, 0)
