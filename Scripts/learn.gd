@@ -65,14 +65,44 @@ func update_asteroid_info():
 		estimated_diameter_min = asteroids[current_index]["estimated_diameter"]["meters"]["estimated_diameter_min"]
 		estimated_diameter_max = asteroids[current_index]["estimated_diameter"]["meters"]["estimated_diameter_max"]
 	var is_potentially_hazardous_asteroid = asteroids[current_index]["is_potentially_hazardous_asteroid"]
-	learn_card.info.text = "neo_reference_id: "
+	var sys_time = int(Time.get_unix_time_from_system())
+	var pass_time
+	var readable_time
+	var dist_au
+	var dist_lu
+	var dist_km
+	var vel_kms
+	var vel_kmh
+	for time in asteroids[current_index]["close_approach_data"]:
+		pass_time = time["epoch_date_close_approach"]/1000
+		if pass_time > sys_time:
+			readable_time = time["close_approach_date"]
+			dist_au = time["miss_distance"]["astronomical"]
+			dist_lu = time["miss_distance"]["lunar"]
+			dist_km = time["miss_distance"]["kilometers"]
+			vel_kms = time["relative_velocity"]["kilometers_per_second"]
+			vel_kmh = time["relative_velocity"]["kilometers_per_hour"]
+			break
+	learn_card.info.text = "Neo reference id: "
 	learn_card.info.text += neo_reference_id + "\n"
-	learn_card.info.text += "designation: "
+	learn_card.info.text += "Designation: "
 	learn_card.info.text += designation + "\n"
-	learn_card.info.text += "estimated_diameter: "
+	learn_card.info.text += "Estimated_diameter: "
 	learn_card.info.text += "%0.2f-%0.2f%s\n" % [estimated_diameter_min, estimated_diameter_max, unit]
-	learn_card.info.text += "is_potentially_hazardous_asteroid: "
+	learn_card.info.text += "Potentially hazardous asteroid: "
 	learn_card.info.text += str(is_potentially_hazardous_asteroid) + "\n"
+	learn_card.info.text += "Next nearest pass: "
+	learn_card.info.text += str(readable_time) + "\n"
+	learn_card.info.text += "Distance in astromical units: "
+	learn_card.info.text += str(dist_au) + "\n"
+	learn_card.info.text += "Distance in lunar units: "
+	learn_card.info.text += str(dist_lu) + "\n"
+	learn_card.info.text += "Distance in kilometers: "
+	learn_card.info.text += str(dist_km) + "\n"
+	learn_card.info.text += "Relative velocity in kilometers per second: "
+	learn_card.info.text += str(vel_kms) + "\n"
+	learn_card.info.text += "Relative velocity in kilometers per hour: "
+	learn_card.info.text += str(vel_kmh) + "\n"
 	#["links", "id", "neo_reference_id", "name", "name_limited", "designation", "nasa_jpl_url", "absolute_magnitude_h", "estimated_diameter", "is_potentially_hazardous_asteroid", "close_approach_data", "orbital_data", "is_sentry_object"]
 
 func update_environmental_info():

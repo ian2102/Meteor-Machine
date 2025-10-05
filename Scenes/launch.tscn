@@ -107,17 +107,14 @@ anchor_left = 0.0078125
 anchor_top = 0.6203704
 anchor_right = 0.7369792
 anchor_bottom = 0.99814814
-grow_horizontal = 2
-grow_vertical = 0
 theme_override_constants/separation = 60
 alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Card1" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_direction = 4
+custom_minimum_size = Vector2(50, 0)
+layout_direction = 1
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8cm1k")
 icon = ExtResource("5_8cm1k")
@@ -125,10 +122,10 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Card2" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_direction = 4
+custom_minimum_size = Vector2(50, 0)
+layout_direction = 1
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8cm1k")
 icon = ExtResource("6_bodta")
@@ -136,10 +133,10 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Card3" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_direction = 4
+custom_minimum_size = Vector2(50, 0)
+layout_direction = 1
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8cm1k")
 icon = ExtResource("7_1b3uw")
