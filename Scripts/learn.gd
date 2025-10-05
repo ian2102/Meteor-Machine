@@ -57,14 +57,20 @@ func update_asteroid_info():
 	learn_card.title.text = asteroids[current_index]["name"]
 	var neo_reference_id = asteroids[current_index]["neo_reference_id"]
 	var designation = asteroids[current_index]["designation"]
-	var estimated_diameter = asteroids[current_index]["estimated_diameter"]
+	var estimated_diameter_min = asteroids[current_index]["estimated_diameter"]["kilometers"]["estimated_diameter_min"]
+	var estimated_diameter_max = asteroids[current_index]["estimated_diameter"]["kilometers"]["estimated_diameter_max"]
+	var unit = "km"
+	if estimated_diameter_max < 1:
+		unit = "m"
+		estimated_diameter_min = asteroids[current_index]["estimated_diameter"]["meters"]["estimated_diameter_min"]
+		estimated_diameter_max = asteroids[current_index]["estimated_diameter"]["meters"]["estimated_diameter_max"]
 	var is_potentially_hazardous_asteroid = asteroids[current_index]["is_potentially_hazardous_asteroid"]
 	learn_card.info.text = "neo_reference_id: "
 	learn_card.info.text += neo_reference_id + "\n"
 	learn_card.info.text += "designation: "
 	learn_card.info.text += designation + "\n"
-	#learn_card.info.text = "estimated_diameter: "
-	#learn_card.info.text += estimated_diameter + "\n"
+	learn_card.info.text += "estimated_diameter: "
+	learn_card.info.text += "%0.2f-%0.2f%s\n" % [estimated_diameter_min, estimated_diameter_max, unit]
 	learn_card.info.text += "is_potentially_hazardous_asteroid: "
 	learn_card.info.text += str(is_potentially_hazardous_asteroid) + "\n"
 	#["links", "id", "neo_reference_id", "name", "name_limited", "designation", "nasa_jpl_url", "absolute_magnitude_h", "estimated_diameter", "is_potentially_hazardous_asteroid", "close_approach_data", "orbital_data", "is_sentry_object"]
