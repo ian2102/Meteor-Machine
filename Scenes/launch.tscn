@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5bjbjh4lk774" path="res://Scripts/launch.gd" id="1_jw84x"]
 [ext_resource type="Texture2D" uid="uid://do1rjn4m5glov" path="res://Assets/LaunchMap.jpg" id="2_nrqhf"]
-[ext_resource type="Texture2D" uid="uid://cvpgqgx1r3n34" path="res://Assets/cards/asteroids/1_red.png" id="3_y0xra"]
+[ext_resource type="Texture2D" path="res://Assets/cards/asteroids/1_red.png" id="3_y0xra"]
 [ext_resource type="PackedScene" uid="uid://dmk1cg1yljy5r" path="res://Scenes/hit_marker.tscn" id="4_y0xra"]
 [ext_resource type="Texture2D" uid="uid://6geyvvf8ikkr" path="res://Assets/cards/defense/1_red.png" id="5_8cm1k"]
 [ext_resource type="Texture2D" uid="uid://bhhshmkksltd" path="res://Assets/cards/defense/2_red.png" id="6_bodta"]

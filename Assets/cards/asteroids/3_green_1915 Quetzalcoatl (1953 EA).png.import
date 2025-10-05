@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvpgqgx1r3n34"
-path="res://.godot/imported/1_red.png-24e47258b9c1bf88515e5c69cefe0466.ctex"
+uid="uid://b050v0tsqi23l"
+path="res://.godot/imported/3_green_1915 Quetzalcoatl (1953 EA).png-7be679ff7e5ab142755705991121c0b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cards/asteroids/1_red.png"
-dest_files=["res://.godot/imported/1_red.png-24e47258b9c1bf88515e5c69cefe0466.ctex"]
+source_file="res://Assets/cards/asteroids/3_green_1915 Quetzalcoatl (1953 EA).png"
+dest_files=["res://.godot/imported/3_green_1915 Quetzalcoatl (1953 EA).png-7be679ff7e5ab142755705991121c0b2.ctex"]
 
 [params]
 

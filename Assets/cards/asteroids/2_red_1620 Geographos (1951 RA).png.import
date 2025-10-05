@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7rybkt6fsbgt"
-path="res://.godot/imported/5_red.png-43a1ce53193468c5578c7dff23e1fdd8.ctex"
+uid="uid://dhu7ohy2hww8f"
+path="res://.godot/imported/2_red_1620 Geographos (1951 RA).png-f9d513949a500930f52c0db1e0a7e38e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cards/asteroids/5_red.png"
-dest_files=["res://.godot/imported/5_red.png-43a1ce53193468c5578c7dff23e1fdd8.ctex"]
+source_file="res://Assets/cards/asteroids/2_red_1620 Geographos (1951 RA).png"
+dest_files=["res://.godot/imported/2_red_1620 Geographos (1951 RA).png-f9d513949a500930f52c0db1e0a7e38e.ctex"]
 
 [params]
 

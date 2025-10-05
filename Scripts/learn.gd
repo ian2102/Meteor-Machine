@@ -29,7 +29,10 @@ func get_colored_pngs(path: String) -> Array:
 				# Extract color (string between "_" and ".png")
 				# Example: "1_red.png" -> "red"
 				var parts = file_name.split("_")
-				if parts.size() > 1:
+				if parts.size() > 2:
+					var asteroid_name = parts[2].replace(".png", "")
+					results.append([texture, parts[1], asteroid_name])
+				elif parts.size() > 1:
 					var color_part = parts[1].replace(".png", "")
 					results.append([texture, color_part])
 			file_name = dir.get_next()
@@ -39,9 +42,11 @@ func get_colored_pngs(path: String) -> Array:
 	return results
 
 func _ready():
-	var error = http_request.request("https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=mIYsnrgYn3Nh3zKR0V3IvSvQo4ghKAfpGDEEdBmE")
-	if error != OK:
-		print("An error occurred in the HTTP request.")
+	asteroids = get_colored_pngs("res://Assets/cards/asteroids/")
+	update_asteroid_info()
+	#var error = http_request.request("https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=mIYsnrgYn3Nh3zKR0V3IvSvQo4ghKAfpGDEEdBmE")
+	#if error != OK:
+		#print("An error occurred in the HTTP request.")
 	
 	defense_cards = get_colored_pngs("res://Assets/cards/defense/")
 	environment_cards = get_colored_pngs("res://Assets/cards/environments/")
@@ -56,56 +61,58 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 	update_asteroid_info()
 
 func update_asteroid_info():
-	learn_card.texture_rect.texture = null
-	learn_card.title.text = asteroids[current_index]["name"]
-	var neo_reference_id = asteroids[current_index]["neo_reference_id"]
-	var designation = asteroids[current_index]["designation"]
-	var estimated_diameter_min = asteroids[current_index]["estimated_diameter"]["kilometers"]["estimated_diameter_min"]
-	var estimated_diameter_max = asteroids[current_index]["estimated_diameter"]["kilometers"]["estimated_diameter_max"]
-	var unit = "km"
-	if estimated_diameter_max < 1:
-		unit = "m"
-		estimated_diameter_min = asteroids[current_index]["estimated_diameter"]["meters"]["estimated_diameter_min"]
-		estimated_diameter_max = asteroids[current_index]["estimated_diameter"]["meters"]["estimated_diameter_max"]
-	var is_potentially_hazardous_asteroid = asteroids[current_index]["is_potentially_hazardous_asteroid"]
-	var sys_time = int(Time.get_unix_time_from_system())
-	var pass_time
-	var readable_time
-	var dist_au
-	var dist_lu
-	var dist_km
-	var vel_kms
-	var vel_kmh
-	for time in asteroids[current_index]["close_approach_data"]:
-		pass_time = time["epoch_date_close_approach"]/1000
-		if pass_time > sys_time:
-			readable_time = time["close_approach_date"]
-			dist_au = time["miss_distance"]["astronomical"]
-			dist_lu = time["miss_distance"]["lunar"]
-			dist_km = time["miss_distance"]["kilometers"]
-			vel_kms = time["relative_velocity"]["kilometers_per_second"]
-			vel_kmh = time["relative_velocity"]["kilometers_per_hour"]
-			break
-	learn_card.info.text = "Neo reference id: "
-	learn_card.info.text += neo_reference_id + "\n"
-	learn_card.info.text += "Designation: "
-	learn_card.info.text += designation + "\n"
-	learn_card.info.text += "Estimated_diameter: "
-	learn_card.info.text += "%0.2f-%0.2f%s\n" % [estimated_diameter_min, estimated_diameter_max, unit]
-	learn_card.info.text += "Potentially hazardous asteroid: "
-	learn_card.info.text += str(is_potentially_hazardous_asteroid) + "\n"
-	learn_card.info.text += "Next nearest pass: "
-	learn_card.info.text += str(readable_time) + "\n"
-	learn_card.info.text += "Distance in astromical units: "
-	learn_card.info.text += str(dist_au) + "au\n"
-	learn_card.info.text += "Distance in lunar units: "
-	learn_card.info.text += str(dist_lu) + "lu\n"
-	learn_card.info.text += "Distance in kilometers: "
-	learn_card.info.text += str(dist_km) + "km\n"
-	learn_card.info.text += "Relative velocity in kilometers per second: "
-	learn_card.info.text += str(vel_kms) + "km/s\n"
-	learn_card.info.text += "Relative velocity in kilometers per hour: "
-	learn_card.info.text += str(vel_kmh) + "km/h\n"
+	learn_card.texture_rect.texture = asteroids[current_index][0]
+	learn_card.title.text = ""
+	learn_card.info.text = ""
+	#learn_card.title.text = asteroids[current_index]["name"]
+	#var neo_reference_id = asteroids[current_index]["neo_reference_id"]
+	#var designation = asteroids[current_index]["designation"]
+	#var estimated_diameter_min = asteroids[current_index]["estimated_diameter"]["kilometers"]["estimated_diameter_min"]
+	#var estimated_diameter_max = asteroids[current_index]["estimated_diameter"]["kilometers"]["estimated_diameter_max"]
+	#var unit = "km"
+	#if estimated_diameter_max < 1:
+		#unit = "m"
+		#estimated_diameter_min = asteroids[current_index]["estimated_diameter"]["meters"]["estimated_diameter_min"]
+		#estimated_diameter_max = asteroids[current_index]["estimated_diameter"]["meters"]["estimated_diameter_max"]
+	#var is_potentially_hazardous_asteroid = asteroids[current_index]["is_potentially_hazardous_asteroid"]
+	#var sys_time = int(Time.get_unix_time_from_system())
+	#var pass_time
+	#var readable_time
+	#var dist_au
+	#var dist_lu
+	#var dist_km
+	#var vel_kms
+	#var vel_kmh
+	#for time in asteroids[current_index]["close_approach_data"]:
+		#pass_time = time["epoch_date_close_approach"]/1000
+		#if pass_time > sys_time:
+			#readable_time = time["close_approach_date"]
+			#dist_au = time["miss_distance"]["astronomical"]
+			#dist_lu = time["miss_distance"]["lunar"]
+			#dist_km = time["miss_distance"]["kilometers"]
+			#vel_kms = time["relative_velocity"]["kilometers_per_second"]
+			#vel_kmh = time["relative_velocity"]["kilometers_per_hour"]
+			#break
+	#learn_card.info.text = "Neo reference id: "
+	#learn_card.info.text += neo_reference_id + "\n"
+	#learn_card.info.text += "Designation: "
+	#learn_card.info.text += designation + "\n"
+	#learn_card.info.text += "Estimated_diameter: "
+	#learn_card.info.text += "%0.2f-%0.2f%s\n" % [estimated_diameter_min, estimated_diameter_max, unit]
+	#learn_card.info.text += "Potentially hazardous asteroid: "
+	#learn_card.info.text += str(is_potentially_hazardous_asteroid) + "\n"
+	#learn_card.info.text += "Next nearest pass: "
+	#learn_card.info.text += str(readable_time) + "\n"
+	#learn_card.info.text += "Distance in astromical units: "
+	#learn_card.info.text += str(dist_au) + "au\n"
+	#learn_card.info.text += "Distance in lunar units: "
+	#learn_card.info.text += str(dist_lu) + "lu\n"
+	#learn_card.info.text += "Distance in kilometers: "
+	#learn_card.info.text += str(dist_km) + "km\n"
+	#learn_card.info.text += "Relative velocity in kilometers per second: "
+	#learn_card.info.text += str(vel_kms) + "km/s\n"
+	#learn_card.info.text += "Relative velocity in kilometers per hour: "
+	#learn_card.info.text += str(vel_kmh) + "km/h\n"
 	#["links", "id", "neo_reference_id", "name", "name_limited", "designation", "nasa_jpl_url", "absolute_magnitude_h", "estimated_diameter", "is_potentially_hazardous_asteroid", "close_approach_data", "orbital_data", "is_sentry_object"]
 
 func update_environmental_cards_info():

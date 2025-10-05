@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwd455ab543dr"
-path="res://.godot/imported/Screenshot_2025-10-04_at_7.00.37_PM.png-438fe4c266ecac62ef1b82411ebc62b2.ctex"
+uid="uid://81k02opwts77"
+path="res://.godot/imported/2_green_1865 Cerberus (1971 UA).png-afec7f3489b81406b96846ee0ac47df9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cards/asteroids/Screenshot_2025-10-04_at_7.00.37_PM.png"
-dest_files=["res://.godot/imported/Screenshot_2025-10-04_at_7.00.37_PM.png-438fe4c266ecac62ef1b82411ebc62b2.ctex"]
+source_file="res://Assets/cards/asteroids/2_green_1865 Cerberus (1971 UA).png"
+dest_files=["res://.godot/imported/2_green_1865 Cerberus (1971 UA).png-afec7f3489b81406b96846ee0ac47df9.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0k0qqn6x4l2u"
-path="res://.godot/imported/2_red.png-a96451c06fd62613e8601b87c1787246.ctex"
+uid="uid://behsio2blc4he"
+path="res://.godot/imported/3_orange_1917 Cuyo (1968 AA).png-f58bb9e8fea295d77b6e4d1407ebb742.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cards/asteroids/2_red.png"
-dest_files=["res://.godot/imported/2_red.png-a96451c06fd62613e8601b87c1787246.ctex"]
+source_file="res://Assets/cards/asteroids/3_orange_1917 Cuyo (1968 AA).png"
+dest_files=["res://.godot/imported/3_orange_1917 Cuyo (1968 AA).png-f58bb9e8fea295d77b6e4d1407ebb742.ctex"]
 
 [params]
 

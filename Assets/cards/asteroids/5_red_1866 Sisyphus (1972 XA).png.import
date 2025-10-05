@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://def2spo520pc0"
-path="res://.godot/imported/4_red.png-5a1070c08b5f75c0e6f23a29ca4f9cc9.ctex"
+uid="uid://bu7rutbgauwd0"
+path="res://.godot/imported/5_red_1866 Sisyphus (1972 XA).png-16611856bd5e0e4acb54f7605fc3ead8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cards/asteroids/4_red.png"
-dest_files=["res://.godot/imported/4_red.png-5a1070c08b5f75c0e6f23a29ca4f9cc9.ctex"]
+source_file="res://Assets/cards/asteroids/5_red_1866 Sisyphus (1972 XA).png"
+dest_files=["res://.godot/imported/5_red_1866 Sisyphus (1972 XA).png-16611856bd5e0e4acb54f7605fc3ead8.ctex"]
 
 [params]
 
