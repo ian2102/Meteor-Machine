@@ -94,15 +94,15 @@ func update_asteroid_info():
 	learn_card.info.text += "Next nearest pass: "
 	learn_card.info.text += str(readable_time) + "\n"
 	learn_card.info.text += "Distance in astromical units: "
-	learn_card.info.text += str(dist_au) + "\n"
+	learn_card.info.text += str(dist_au) + "au\n"
 	learn_card.info.text += "Distance in lunar units: "
-	learn_card.info.text += str(dist_lu) + "\n"
+	learn_card.info.text += str(dist_lu) + "lu\n"
 	learn_card.info.text += "Distance in kilometers: "
-	learn_card.info.text += str(dist_km) + "\n"
+	learn_card.info.text += str(dist_km) + "km\n"
 	learn_card.info.text += "Relative velocity in kilometers per second: "
-	learn_card.info.text += str(vel_kms) + "\n"
+	learn_card.info.text += str(vel_kms) + "km/s\n"
 	learn_card.info.text += "Relative velocity in kilometers per hour: "
-	learn_card.info.text += str(vel_kmh) + "\n"
+	learn_card.info.text += str(vel_kmh) + "km/h\n"
 	#["links", "id", "neo_reference_id", "name", "name_limited", "designation", "nasa_jpl_url", "absolute_magnitude_h", "estimated_diameter", "is_potentially_hazardous_asteroid", "close_approach_data", "orbital_data", "is_sentry_object"]
 
 func update_environmental_info():
