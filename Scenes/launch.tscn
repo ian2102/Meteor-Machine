@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpo27w1ek5dhj"]
+[gd_scene load_steps=9 format=3 uid="uid://dpo27w1ek5dhj"]
 
 [ext_resource type="Script" uid="uid://b5bjbjh4lk774" path="res://Scripts/launch.gd" id="1_jw84x"]
 [ext_resource type="Texture2D" uid="uid://do1rjn4m5glov" path="res://Assets/LaunchMap.jpg" id="2_nrqhf"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://6geyvvf8ikkr" path="res://Assets/cards/defense/1_red.png" id="5_8cm1k"]
 [ext_resource type="Texture2D" uid="uid://bhhshmkksltd" path="res://Assets/cards/defense/2_red.png" id="6_bodta"]
 [ext_resource type="Texture2D" uid="uid://bn80kveyncgfs" path="res://Assets/cards/defense/3_red.png" id="7_1b3uw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8cm1k"]
 
 [node name="Launch" type="Control"]
 layout_mode = 3
@@ -48,8 +50,10 @@ offset_bottom = 112.0
 
 [node name="AsteroidCard" type="TextureRect" parent="."]
 layout_mode = 1
-offset_right = 360.0
-offset_bottom = 495.0
+offset_left = 19.0
+offset_top = 79.0
+offset_right = 379.0
+offset_bottom = 574.0
 texture = ExtResource("3_y0xra")
 expand_mode = 1
 stretch_mode = 4
@@ -59,13 +63,15 @@ stretch_mode = 4
 [node name="StatusLabel" type="Label" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -139.0
-offset_right = 53.0
-offset_bottom = 11.5
+offset_left = -46.5
+offset_top = -175.25
+offset_right = 46.5
+offset_bottom = -24.75
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
@@ -82,9 +88,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -147.0
-offset_top = -18.5
+offset_top = -58.5
 offset_right = 147.0
-offset_bottom = 98.5
+offset_bottom = 58.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
@@ -96,35 +102,41 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -431.0
+offset_left = 15.0
+offset_top = -410.0
+offset_right = -505.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 100
+theme_override_constants/separation = 60
 alignment = 1
 
-[node name="Button1" type="Button" parent="HBoxContainer"]
+[node name="Card1" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8cm1k")
 icon = ExtResource("5_8cm1k")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
+[node name="Card2" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8cm1k")
 icon = ExtResource("6_bodta")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button3" type="Button" parent="HBoxContainer"]
+[node name="Card3" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8cm1k")
 icon = ExtResource("7_1b3uw")
 icon_alignment = 1
 expand_icon = true
@@ -132,17 +144,66 @@ expand_icon = true
 [node name="Activate" type="Button" parent="."]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 0
-offset_left = 1505.0
-offset_top = 17.0
-offset_right = 1905.0
-offset_bottom = 227.0
+offset_left = 1424.0
+offset_top = 860.0
+offset_right = 1888.0
+offset_bottom = 1023.0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
-text = "ACTIVATE"
+text = "ACTIVATE DEFENSE"
+
+[node name="IncomingLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 62.0
+offset_top = 4.0
+offset_right = 443.0
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 50
+text = "INCOMING"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Defend Earth"
+
+[node name="ReturnButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -435.0
+offset_bottom = 72.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -431.0
+offset_top = 216.0
+offset_right = -127.0
+offset_bottom = 275.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Score: 0"
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
 [connection signal="button_down" from="NextButton" to="." method="_on_next_button_button_down"]
-[connection signal="button_down" from="HBoxContainer/Button1" to="." method="_on_button_1_button_down"]
-[connection signal="button_down" from="HBoxContainer/Button2" to="." method="_on_button_2_button_down"]
-[connection signal="button_down" from="HBoxContainer/Button3" to="." method="_on_button_3_button_down"]
+[connection signal="button_down" from="HBoxContainer/Card1" to="." method="_on_button_1_button_down"]
+[connection signal="button_down" from="HBoxContainer/Card2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="HBoxContainer/Card3" to="." method="_on_button_3_button_down"]
 [connection signal="button_down" from="Activate" to="." method="_on_activate_button_down"]
+[connection signal="button_down" from="ReturnButton" to="." method="_on_return_button_button_down"]

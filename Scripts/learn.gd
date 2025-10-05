@@ -55,3 +55,6 @@ func _on_button_left_button_down() -> void:
 func _on_button_right_button_down() -> void:
 	current_index = (current_index + 1) % asteroids.size()
 	update_info()
+
+func _on_return_button_button_down() -> void:
+	queue_free()
