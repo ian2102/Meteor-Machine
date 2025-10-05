@@ -1,10 +1,15 @@
 extends Node
 
+@onready var next_button: Button = $NextButton
+@onready var status_label: Label = $StatusLabel
+@onready var asteroid_card: TextureRect = $AsteroidCard
+@onready var hit_marker: Control = $HitMarker
+
 @onready var http_request: HTTPRequest = $HTTPRequest
-@onready var learn_card: Control = $LearnCard
+
 const HIT_MARKER = preload("res://Scenes/hit_marker.tscn")
 
-var current_index = 0
+var current_asteroid_index = 0
 
 var current_card = 0
 
@@ -17,11 +22,8 @@ const _5 = preload("uid://b7rybkt6fsbgt")
 var asteroids = [_1, _2, _3, _4, _5]
 
 func _ready():
-	
 	var pos = get_random_position()
-	var hit_marker = HIT_MARKER.instantiate()
 	hit_marker.position = pos
-	add_child(hit_marker)
 
 
 var screen_width = 1920 / 0.9
@@ -34,33 +36,33 @@ func get_random_position() -> Vector2:
 
 
 func _on_button_1_button_down() -> void:
-	if learn_card.visible == true:
-		if current_card == 1:
-			learn_card.hide()
-		else:
-			current_card = 1
-	else:
-		learn_card.show()
-		current_card = 1
+	current_card = 1
 
 
 func _on_button_2_button_down() -> void:
-	if learn_card.visible == true:
-		if current_card == 2:
-			learn_card.hide()
-		else:
-			current_card = 2
-	else:
-		learn_card.show()
-		current_card = 2
+	current_card = 2
 
 
 func _on_button_3_button_down() -> void:
-	if learn_card.visible == true:
-		if current_card == 3:
-			learn_card.hide()
-		else:
-			current_card = 3
+	current_card = 3
+
+
+func _on_activate_button_down() -> void:
+	var status = true
+	if status:
+		status_label.show()
+		status_label.text = "win"
+		next_button.show()
 	else:
-		learn_card.show()
-		current_card = 3
+		status_label.show()
+		status_label.text = "lose"
+		next_button.show()
+
+func _on_next_button_button_down() -> void:
+	current_asteroid_index = (current_asteroid_index + 1) % asteroids.size()
+	asteroid_card.texture = asteroids[current_asteroid_index]
+	status_label.hide()
+	next_button.hide()
+	
+	var pos = get_random_position()
+	hit_marker.position = pos

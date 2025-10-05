@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b5bjbjh4lk774" path="res://Scripts/launch.gd" id="1_jw84x"]
 [ext_resource type="Texture2D" uid="uid://do1rjn4m5glov" path="res://Assets/LaunchMap.jpg" id="2_nrqhf"]
-[ext_resource type="PackedScene" uid="uid://ejpe02dug4vs" path="res://Scenes/learn_card.tscn" id="3_5tlx8"]
 [ext_resource type="Texture2D" uid="uid://cvpgqgx1r3n34" path="res://Assets/cards/1.png" id="3_y0xra"]
+[ext_resource type="PackedScene" uid="uid://dmk1cg1yljy5r" path="res://Scenes/hit_marker.tscn" id="4_y0xra"]
 
 [node name="Launch" type="Control"]
 layout_mode = 3
@@ -46,13 +46,39 @@ stretch_mode = 4
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[node name="LearnCard" parent="." instance=ExtResource("3_5tlx8")]
+[node name="StatusLabel" type="Label" parent="."]
+visible = false
 layout_mode = 1
-offset_left = 231.0
-offset_top = -269.0
-offset_right = 231.0
-offset_bottom = -269.0
-scale = Vector2(1.2, 1.2)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -139.0
+offset_right = 53.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Win"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextButton" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -18.5
+offset_right = 147.0
+offset_bottom = 98.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Next"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -94,7 +120,16 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
 text = "ACTIVATE"
 
+[node name="HitMarker" parent="." instance=ExtResource("4_y0xra")]
+layout_mode = 1
+offset_left = 661.0
+offset_top = 192.0
+offset_right = 661.0
+offset_bottom = 192.0
+
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="button_down" from="NextButton" to="." method="_on_next_button_button_down"]
 [connection signal="button_down" from="HBoxContainer/Button1" to="." method="_on_button_1_button_down"]
 [connection signal="button_down" from="HBoxContainer/Button2" to="." method="_on_button_2_button_down"]
 [connection signal="button_down" from="HBoxContainer/Button3" to="." method="_on_button_3_button_down"]
+[connection signal="button_down" from="HBoxContainer/Activate" to="." method="_on_activate_button_down"]
