@@ -99,19 +99,6 @@ func _on_button_3_button_down() -> void:
 	selected_card = 2
 
 func _on_activate_button_down() -> void:
-	
-	next_card_index = (next_card_index + 1) % cards.size()
-	
-	match selected_card:
-		0:
-			card_1.icon = cards[next_card_index][0]
-		1:
-			card_2.icon = cards[next_card_index][0]
-		2:
-			card_3.icon = cards[next_card_index][0]
-	
-	cards_data[selected_card][1] = cards[next_card_index][1]
-	
 	var status = (asteroid_data[1] == cards_data[selected_card][1])
 	if status:
 		status_label.show()
@@ -124,12 +111,26 @@ func _on_activate_button_down() -> void:
 		if score > 0:
 			score -= 1
 		next_button.show()
-		
+	
 	score_label.text = "Score: " + str(score)
+	
+	next_card_index = (next_card_index + 1) % cards.size()
+	
+	match selected_card:
+		0:
+			card_1.icon = cards[next_card_index][0]
+		1:
+			card_2.icon = cards[next_card_index][0]
+		2:
+			card_3.icon = cards[next_card_index][0]
+	
+	cards_data[selected_card] = cards[next_card_index]
 
 func _on_next_button_button_down() -> void:
 	current_asteroid_index = (current_asteroid_index + 1) % asteroids.size()
 	asteroid_card.texture = asteroids[current_asteroid_index][0]
+	asteroid_data = asteroids[current_asteroid_index]
+
 	status_label.hide()
 	next_button.hide()
 	

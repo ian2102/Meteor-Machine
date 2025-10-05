@@ -73,7 +73,6 @@ func update_environmental_info():
 	learn_card.texture_rect.texture = null
 	learn_card.title.text = "Environmental Impact"
 	learn_card.info.text = "Asteroid impacts can trigger massive environmental disasters. A strike in the ocean may cause tsunamis that devastate coastlines, while land impacts can produce earthquakes and shockwaves. Dust and debris thrown into the atmosphere can block sunlight, disrupting climate and agriculture. Firestorms, acid rain, and long-term ecological collapse are also possible, depending on the asteroid’s size and speed."
-	
 
 func update_defense_cards_info():
 	learn_card.title.text  = ""
@@ -106,12 +105,12 @@ func _on_button_left_button_down() -> void:
 func _on_button_right_button_down() -> void:
 	match selected_section:
 		0:
-			current_index = (current_index - 1 + asteroids.size()) % asteroids.size()
+			current_index = (current_index + 1) % asteroids.size()
 			update_asteroid_info()
 		1:
 			pass
 		2:
-			current_card_index = (current_card_index - 1 + defense_cards.size()) % defense_cards.size()
+			current_card_index = (current_card_index + 1) % defense_cards.size()
 			update_defense_cards_info()
 
 

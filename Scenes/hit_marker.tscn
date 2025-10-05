@@ -17,3 +17,12 @@ grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_u5oyo")
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 410.0
+offset_right = 801.0
+offset_bottom = 889.99994
+theme_override_font_sizes/font_size = 100
+text = "Impact Zone"
