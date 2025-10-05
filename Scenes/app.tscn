@@ -27,19 +27,21 @@ texture = ExtResource("2_sb7qb")
 
 [node name="Learn" type="Button" parent="MainMenu"]
 layout_mode = 0
-offset_left = 645.0
-offset_top = 807.0
-offset_right = 1193.0
-offset_bottom = 1032.0
+anchor_left = 0.3359375
+anchor_top = 0.74722224
+anchor_right = 0.62135416
+anchor_bottom = 0.95555556
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sb7qb")
+metadata/_edit_use_anchors_ = true
 
 [node name="Launch" type="Button" parent="MainMenu"]
 layout_mode = 0
-offset_left = 1278.0
-offset_top = 807.0
-offset_right = 1826.0
-offset_bottom = 1032.0
+anchor_left = 0.665625
+anchor_top = 0.74722224
+anchor_right = 0.95104164
+anchor_bottom = 0.95555556
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sb7qb")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="button_down" from="MainMenu/Learn" to="." method="_on_learn_button_down"]
 [connection signal="button_down" from="MainMenu/Launch" to="." method="_on_launch_button_down"]

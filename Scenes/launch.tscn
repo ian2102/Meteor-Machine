@@ -21,25 +21,25 @@ script = ExtResource("1_jw84x")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = -0.23148148
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -250.0
-offset_bottom = -250.0
+anchor_bottom = 0.7685185
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_nrqhf")
+metadata/_edit_use_anchors_ = true
 
 [node name="Background1" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.7638889
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 825.0
-offset_bottom = 825.0
+anchor_bottom = 1.7638888
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_nrqhf")
+metadata/_edit_use_anchors_ = true
 
 [node name="HitMarker" parent="." instance=ExtResource("4_y0xra")]
 layout_mode = 1
@@ -98,18 +98,16 @@ text = "Next"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = -410.0
-offset_right = -505.0
-offset_bottom = -2.0
+anchors_preset = -1
+anchor_left = 0.0078125
+anchor_top = 0.6203704
+anchor_right = 0.7369792
+anchor_bottom = 0.99814814
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 60
 alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Card1" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
@@ -144,13 +142,14 @@ expand_icon = true
 [node name="Activate" type="Button" parent="."]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 0
-offset_left = 1424.0
-offset_top = 860.0
-offset_right = 1888.0
-offset_bottom = 1023.0
+anchor_left = 0.7416667
+anchor_top = 0.7962963
+anchor_right = 0.98333335
+anchor_bottom = 0.94722223
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
 text = "ACTIVATE DEFENSE"
+metadata/_edit_use_anchors_ = true
 
 [node name="IncomingLabel" type="Label" parent="."]
 layout_mode = 1
@@ -175,14 +174,14 @@ text = "Defend Earth"
 
 [node name="ReturnButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.7734375
 anchor_right = 1.0
-offset_left = -435.0
-offset_bottom = 72.0
+anchor_bottom = 0.06666667
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 40
 text = "Main Menu"
+metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel" type="Label" parent="."]
 layout_mode = 1
