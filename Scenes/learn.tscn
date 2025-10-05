@@ -26,6 +26,8 @@ texture = ExtResource("2_37p1f")
 
 [node name="LearnCard" parent="." instance=ExtResource("3_s7775")]
 layout_mode = 1
+offset_top = -125.0
+offset_bottom = -125.0
 
 [node name="Asteroids" type="Button" parent="."]
 layout_mode = 0
