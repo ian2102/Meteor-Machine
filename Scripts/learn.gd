@@ -9,6 +9,8 @@ var selected_section = 0
 
 var current_card_index = 0
 var defense_cards = []
+var current_env_card_index = 0
+var environment_cards = []
 
 func get_colored_pngs(path: String) -> Array:
 	var results: Array = []
@@ -42,6 +44,7 @@ func _ready():
 		print("An error occurred in the HTTP request.")
 	
 	defense_cards = get_colored_pngs("res://Assets/cards/defense/")
+	environment_cards = get_colored_pngs("res://Assets/cards/environments/")
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	var json = JSON.parse_string(body.get_string_from_utf8())
@@ -105,10 +108,10 @@ func update_asteroid_info():
 	learn_card.info.text += str(vel_kmh) + "km/h\n"
 	#["links", "id", "neo_reference_id", "name", "name_limited", "designation", "nasa_jpl_url", "absolute_magnitude_h", "estimated_diameter", "is_potentially_hazardous_asteroid", "close_approach_data", "orbital_data", "is_sentry_object"]
 
-func update_environmental_info():
-	learn_card.texture_rect.texture = null
-	learn_card.title.text = "Environmental Impact"
-	learn_card.info.text = "Asteroid impacts can trigger massive environmental disasters. A strike in the ocean may cause tsunamis that devastate coastlines, while land impacts can produce earthquakes and shockwaves. Dust and debris thrown into the atmosphere can block sunlight, disrupting climate and agriculture. Firestorms, acid rain, and long-term ecological collapse are also possible, depending on the asteroid’s size and speed."
+func update_environmental_cards_info():
+	learn_card.texture_rect.texture = environment_cards[current_env_card_index][0]
+	learn_card.title.text = ""
+	learn_card.info.text = ""
 
 func update_defense_cards_info():
 	learn_card.title.text  = ""
@@ -121,7 +124,7 @@ func _on_asteroids_button_down() -> void:
 
 func _on_environmental_button_down() -> void:
 	selected_section = 1
-	update_environmental_info()
+	update_environmental_cards_info()
 
 func _on_mitigation_button_down() -> void:
 	selected_section = 2
@@ -133,7 +136,8 @@ func _on_button_left_button_down() -> void:
 			current_index = (current_index - 1 + asteroids.size()) % asteroids.size()
 			update_asteroid_info()
 		1:
-			pass
+			current_env_card_index = (current_card_index - 1 + environment_cards.size()) % environment_cards.size()
+			update_environmental_cards_info()
 		2:
 			current_card_index = (current_card_index - 1 + defense_cards.size()) % defense_cards.size()
 			update_defense_cards_info()
@@ -144,7 +148,8 @@ func _on_button_right_button_down() -> void:
 			current_index = (current_index + 1) % asteroids.size()
 			update_asteroid_info()
 		1:
-			pass
+			current_env_card_index = (current_env_card_index + 1) % environment_cards.size()
+			update_environmental_cards_info()
 		2:
 			current_card_index = (current_card_index + 1) % defense_cards.size()
 			update_defense_cards_info()
